@@ -1,0 +1,843 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="This topic lists the utility classes and functions used by the C++ code snippets on this wiki." name="description" />
+<meta property="og:title" content="C++ Utility Classes and Functions" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wiki-plus.avblocks.com/avblocks-plus/c-utility-classes-and-functions/" />
+<meta property="og:site_name" content="AVBlocks Plus" />
+<meta property="og:description" content="This topic lists the utility classes and functions used by the C++ code snippets on this site. The functions are from the info_stream_file and info_metadata_file macOS samples. Classes: stdout_utf1..." />
+<meta property="og:image" content="https://wiki-plus.avblocks.com/_static/og-image.png" />
+<meta property="og:image:alt" content="AVBlocks Plus" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wiki-plus.avblocks.com/_static/og-image.png">
+<link rel="search" title="Search" href="../../search/" /><link rel="next" title="About AVBlocks Plus" href="../../about-avblocks/about-avblocks-plus/" /><link rel="prev" title="String Encoding" href="../c-c-api-specifics/string-encoding/" />
+        <link rel="canonical" href="https://wiki-plus.avblocks.com/avblocks-plus/c-utility-classes-and-functions/" />
+
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 --><title>C++ Utility Classes and Functions - AVBlocks™ Plus Wiki</title><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2283dd69" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2FJN5NGCD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S2FJN5NGCD', { 'anonymize_ip': true });
+</script>
+</head>
+  <body>
+    <nav class="top-nav">
+  <div class="top-nav-links">
+    <a href="https://wiki-net.avblocks.com" target="_blank" rel="noopener">.NET Wiki</a>
+    <a href="https://blog.avblocks.com" target="_blank" rel="noopener">Blog</a>
+    <a href="https://github.com/avblocks" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://avblocks.com" target="_blank" rel="noopener">avblocks.com</a>
+  </div>
+</nav>
+
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">AVBlocks&trade; Plus Wiki</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../_static/logo_blue_128.svg" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">AVBlocks&trade; Plus Wiki</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started-linux/">Getting Started - Linux</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting Started - Linux</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-linux/create-cpp-command-line-tool-cmake/">Create a Command Line Tool using CMake on Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-linux/developing-with-vscode/">Developing with Visual Studio Code on Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started-macos/">Getting Started - macOS</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Getting Started - macOS</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-macos/create-cpp-command-line-tool-cmake/">Create a Command Line Tool using CMake on macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-macos/developing-with-vscode/">Developing with Visual Studio Code on macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-macos/create-objc-command-line-tool-xcode/">Create a Command Line Tool in Xcode on macOS</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started-windows/">Getting Started - Windows</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Getting Started - Windows</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-windows/create-cpp-command-line-tool-cmake/">Create a Command Line Tool using CMake on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-windows/developing-with-vscode/">Developing with Visual Studio Code on Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-windows/create-a-c-plus-console-app-in-visual-studio/">Create a Console App in Visual Studio on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../initialization-and-termination/">Initialization and Termination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setting-license-info/">Setting License Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commercial-license/">Commercial License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blocks</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../using-mediainfo/">TMediaInfo</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of TMediaInfo</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using-mediainfo/overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-mediainfo/reading-stream-information/">Reading stream information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-mediainfo/reading-metadata-information/">Reading metadata information</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../using-transcoder/">TTranscoder</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of TTranscoder</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using-transcoder/overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-transcoder/simple-audio-converter/">Simple Audio Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-transcoder/simple-video-converter/">Simple Video Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-transcoder/hardware-acceleration/">Hardware Acceleration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../handling-errors/">Handling Errors</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Encoding &amp; Decoding</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transcoder-as-encoder/">Transcoder as Encoder</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Transcoder as Encoder</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/hevc-index/">HEVC / H.265 Video Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of HEVC / H.265 Video Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/hevc-encoder-run/">HEVC / H.265 Annex B Encoder (Run)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/hevc-encoder-pull/">HEVC / H.265 Encoder (Pull)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/avc-h264-index/">AVC / H.264 Video Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of AVC / H.264 Video Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/avc-h264-encoder-run/">AVC / H.264 Annex B Encoder (Run)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/avc-h264-encoder/">AVC / H.264 Annex B Encoder (Push)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/avc-h264-encoder-pull/">AVC / H.264 Encoder (Pull)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/vp9-index/">VP9 Video Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of VP9 Video Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/vp9-encoder-run/">VP9 Encoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/vp8-index/">VP8 Video Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of VP8 Video Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/vp8-encoder-run/">VP8 Encoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/aac-index/">AAC Audio Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of AAC Audio Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/aac-encoder-run/">AAC ADTS Encoder (Run)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/aac-encoder-pull/">AAC ADTS Encoder (Pull)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/aac-encoder/">AAC ADTS Encoder (Push)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/mp3-index/">MP3 Audio Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of MP3 Audio Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/mp3-encoder-run/">MP3 Encoder (Run)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/mp3-encoder/">MP3 Encoder (Push)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/mp3-encoder-pull/">MP3 Encoder (Pull)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/opus-index/">Opus Audio Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Opus Audio Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/opus-encoder-run/">Opus Encoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/vorbis-index/">Vorbis Audio Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Vorbis Audio Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/vorbis-encoder-run/">Vorbis Encoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/g711-alaw-index/">G.711 (A-law) Audio Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of G.711 (A-law) Audio Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/g711-alaw-encoder-run/">G.711 A-law Encoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-encoder/g711-ulaw-index/">G.711 (u-law) Audio Encoding</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of G.711 (u-law) Audio Encoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-encoder/g711-ulaw-encoder-run/">G.711 μ-law Encoder (Run)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transcoder-as-decoder/">Transcoder as Decoder</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of Transcoder as Decoder</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/hevc-h265-index/">HEVC / H.265 Video Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of HEVC / H.265 Video Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/hevc-decoder-run/">HEVC / H.265 Annex B Decoder (Run)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/hevc-decoder-access-unit/">HEVC / H.265 Access Unit Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/hevc-h265-annex-b-parser/">HEVC / H.265 Annex B Parser</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/avc-h264-index/">AVC / H.264 Video Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of AVC / H.264 Video Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/avc-h264-decoder-run/">AVC / H.264 Annex B Decoder (Run)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/avc-h264-decoder/">AVC / H.264 Annex B Decoder (Pull)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/avc-h264-decoder-access-unit/">AVC / H.264 Access Unit Decoder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/avc-h264-annex-b-parser/">AVC / H.264 Annex B Parser</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/vp9-index/">VP9 Video Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of VP9 Video Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/vp9-decoder-run/">VP9 Decoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/vp8-index/">VP8 Video Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of VP8 Video Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/vp8-decoder-run/">VP8 Decoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/aac-index/">AAC Audio Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of AAC Audio Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/aac-decoder-run/">AAC ADTS Decoder (Run)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/aac-decoder/">AAC ADTS Decoder (Pull)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/mp3-index/">MP3 Audio Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of MP3 Audio Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/mp3-decoder-run/">MP3 Decoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/opus-index/">Opus Audio Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of Opus Audio Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/opus-decoder-run/">Opus Decoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/vorbis-index/">Vorbis Audio Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of Vorbis Audio Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/vorbis-decoder-run/">Vorbis Decoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/g711-alaw-index/">G.711 (A-law) Audio Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of G.711 (A-law) Audio Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/g711-alaw-decoder-run/">G.711 A-law Decoder (Run)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-decoder/g711-ulaw-index/">G.711 (u-law) Audio Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of G.711 (u-law) Audio Decoding</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-decoder/g711-ulaw-decoder-run/">G.711 μ-law Decoder (Run)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Muxing &amp; Demuxing</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transcoder-as-muxer/">Transcoder as Muxer</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of Transcoder as Muxer</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-muxer/mp4-index/">MP4 Muxing</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of MP4 Muxing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-muxer/mux-audio-video-mp4/">Mux Audio and Video Into MP4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-muxer/mux-audio-video-mp4-fast-start/">Mux Audio and Video Into MP4 With Fast Start</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-muxer/webm-index/">WebM Muxing</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of WebM Muxing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-muxer/mux-audio-video-webm/">Mux Audio and Video Into WebM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transcoder-as-demuxer/">Transcoder as Demuxer</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of Transcoder as Demuxer</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-demuxer/mp4-index/">MP4 Demuxing</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of MP4 Demuxing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-demuxer/demux-audio-video-mp4/">Demux Audio and Video From MP4</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transcoder-as-demuxer/webm-index/">WebM Demuxing</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of WebM Demuxing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transcoder-as-demuxer/demux-audio-video-webm/">Demux Audio and Video From WebM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Processing</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../working-audio/">Working with Audio</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of Working with Audio</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../working-audio/upsample-audio/">Upsample Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../working-video/">Working with Video</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of Working with Video</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../working-video/upscale-video/">Upscale Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-video/crop-video/">Crop Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-video/pad-video/">Pad Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-video/change-video-frame-rate/">Change Video Framerate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-video/convert-raw-video-compressed-video/">Using Video Presets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-video/create-video-jpeg-images/">Create Video From JPEG Images</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../working-containers/">Working with Containers</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of Working with Containers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../working-containers/re-encode-audio-video-streams/">Re-encode Audio and Video Streams</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Parameters</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../codec-parameters/">Codec Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of Codec Parameters</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../codec-parameters/avc-h-264/">AVC / H.264</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../muxer-parameters/">Muxer Parameters</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of Muxer Parameters</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../muxer-parameters/mp4/">MP4</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">C++ API</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../c-c-api-specifics/">C++ API Specifics</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of C++ API Specifics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../c-c-api-specifics/string-encoding/">String Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">C++ Utility Classes and Functions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about-avblocks/about-avblocks-plus/">About AVBlocks Plus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about-avblocks/about-hardware-acceleration/">About Hardware Acceleration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about-avblocks/demo-version/">Demo Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../whats-new/">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release-notes/">Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Codecs</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../audio-codecs/">Audio Codecs</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of Audio Codecs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../aac-audio/">AAC Audio (MPEG-2 Part 7 / MPEG-4 Part 3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpeg-audio/">MPEG-1 Audio and MPEG-2 Audio (Layer 1, 2 and 3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opus-audio/">Opus Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vorbis-audio/">Vorbis Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../g711-audio/">G.711 Audio</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../video-codecs/">Video Codecs</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of Video Codecs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hevc-h265-video/">High Efficiency Video Coding (HEVC / H.265 / MPEG-H Part 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../avc-h264-video/">Advanced Video Coding (H.264 / MPEG-4 AVC / MPEG-4 Part 10)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vp9-video/">VP9 Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vp8-video/">VP8 Video</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Containers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mp4-container/">MPEG-4 Part 14 / MP4 Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webm-container/">WebM Container</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="c-utility-classes-and-functions">
+<h1>C++ Utility Classes and Functions<a class="headerlink" href="#c-utility-classes-and-functions" title="Link to this heading">¶</a></h1>
+<p>This topic lists the utility classes and functions used by the C++ code snippets on this site. The functions are from the <a class="reference external" href="https://github.com/avblocks/avblocks-plus/tree/main/samples/darwin/info_stream_file">info_stream_file</a> and <a class="reference external" href="https://github.com/avblocks/avblocks-plus/tree/main/samples/darwin/info_metadata_file">info_metadata_file</a> macOS samples.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<section id="stdout-utf16">
+<h3>stdout_utf16<a class="headerlink" href="#stdout-utf16" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">stdout_utf16</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">stdout_utf16</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Change stdout to Unicode. </span>
+<span class="w">        </span><span class="c1">// Cyrillic and Ideographic characters will appear in the console (console is unicode).</span>
+<span class="w">        </span><span class="n">_setmode</span><span class="p">(</span><span class="n">_fileno</span><span class="p">(</span><span class="n">stdout</span><span class="p">),</span><span class="w"> </span><span class="n">_O_U16TEXT</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="o">~</span><span class="n">stdout_utf16</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// restore ANSI mode</span>
+<span class="w">        </span><span class="n">_setmode</span><span class="p">(</span><span class="n">_fileno</span><span class="p">(</span><span class="n">stdout</span><span class="p">),</span><span class="w"> </span><span class="n">_O_TEXT</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<section id="bitratemodename">
+<h3>bitrateModeName<a class="headerlink" href="#bitratemodename" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">bitrateModeName</span><span class="p">(</span><span class="n">BitrateMode</span><span class="o">::</span><span class="n">Enum</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">BitrateMode</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"Unknown"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">BitrateMode</span><span class="o">::</span><span class="no">ABR</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"ABR"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">BitrateMode</span><span class="o">::</span><span class="no">CBR</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"CBR"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">BitrateMode</span><span class="o">::</span><span class="no">VBR</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"VBR"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="s">"???"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="colorformatname">
+<h3>colorFormatName<a class="headerlink" href="#colorformatname" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">colorFormatName</span><span class="p">(</span><span class="n">ColorFormat</span><span class="o">::</span><span class="n">Enum</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">GRAY</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"GRAY"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"Unknown"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">NV12</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"NV12"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">BGR24</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"BGR24"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">BGR32</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"BGR32"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">BGRA32</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"BGRA32"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">BGR444</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"BGR444"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">BGR555</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"BGR555"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">BGR565</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"BGR565"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">UYVY</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"UYVY"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">Y411</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"Y411"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">Y41P</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"Y41P"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUV411</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"YUV411"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUV420</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"YUV420"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUV420A</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"YUV420A"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUV422</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"YUV422"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUV422A</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"YUV422A"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUV444</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"YUV444"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUV444A</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"YUV444A"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YUY2</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"YUY2"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YV12</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"YV12"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ColorFormat</span><span class="o">::</span><span class="no">YVU9</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"YVU9"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="s">"???"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="scantypename">
+<h3>scanTypeName<a class="headerlink" href="#scantypename" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">scanTypeName</span><span class="p">(</span><span class="n">ScanType</span><span class="o">::</span><span class="n">Enum</span><span class="w"> </span><span class="n">scan</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">scan</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ScanType</span><span class="o">::</span><span class="no">Progressive</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"Progressive"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ScanType</span><span class="o">::</span><span class="no">BottomFieldFirst</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"BottomFieldFirst"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ScanType</span><span class="o">::</span><span class="no">TopFieldFirst</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"TopFieldFirst"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">ScanType</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span><span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="s">"Unknown"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w">                          </span><span class="k">return</span><span class="w"> </span><span class="s">"???"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="mediatypename">
+<h3>mediaTypeName<a class="headerlink" href="#mediatypename" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">mediaTypeName</span><span class="p">(</span><span class="n">MediaType</span><span class="o">::</span><span class="n">Enum</span><span class="w"> </span><span class="n">mt</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">mt</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MediaType</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"Unknown"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MediaType</span><span class="o">::</span><span class="no">Audio</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"Audio"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MediaType</span><span class="o">::</span><span class="no">Video</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"Video"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MediaType</span><span class="o">::</span><span class="no">Text</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"Text"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MediaType</span><span class="o">::</span><span class="no">Data</span><span class="p">:</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">"Data"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="s">"???"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="metapicturetypename">
+<h3>metaPictureTypeName<a class="headerlink" href="#metapicturetypename" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">metaPictureTypeName</span><span class="p">(</span><span class="n">MetaPictureType</span><span class="o">::</span><span class="n">Enum</span><span class="w"> </span><span class="n">pictype</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">pictype</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">Other</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"Other"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">FileIcon</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"FileIcon"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">OtherFileIcon</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"OtherFileIcon"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">FrontCover</span><span class="p">:</span><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">"FrontCover"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">BackCover</span><span class="p">:</span><span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="s">"BackCover"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">LeafletPage</span><span class="p">:</span><span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="s">"LeafletPage"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">Media</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"Media"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">LeadArtist</span><span class="p">:</span><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">"LeadArtist"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">Artist</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"Artist"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">Conductor</span><span class="p">:</span><span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="s">"Conductor"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">Band</span><span class="p">:</span><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s">"Band"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">Composer</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"Composer"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">TextWriter</span><span class="p">:</span><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">"TextWriter"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">RecordingLocation</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"RecordingLocation"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">DuringRecording</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"DuringRecording"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">DuringPerformance</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"DuringPerformance"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">VideoCapture</span><span class="p">:</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"VideoCapture"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">BrightColoredFish</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"BrightColoredFish"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">Illustration</span><span class="p">:</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Illustration"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">ArtistLogotype</span><span class="p">:</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s">"ArtistLogotype"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MetaPictureType</span><span class="o">::</span><span class="no">PublisherLogotype</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"PublisherLogotype"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w">                                   </span><span class="k">return</span><span class="w"> </span><span class="s">"unknown"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="streamsubtypename">
+<h3>streamSubTypeName<a class="headerlink" href="#streamsubtypename" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">streamSubTypeName</span><span class="p">(</span><span class="n">StreamSubType</span><span class="o">::</span><span class="n">Enum</span><span class="w"> </span><span class="n">sst</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">sst</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="s">"Unknown"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">None</span><span class="p">:</span><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="s">"None"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">AVC1</span><span class="p">:</span><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="s">"AVC1"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">AVC_Annex_B</span><span class="p">:</span><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="s">"AVC_Annex_B"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">HVC1</span><span class="p">:</span><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="s">"HVC1"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">HEVC_Annex_B</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"HEVC_Annex_B"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">AAC_RAW</span><span class="p">:</span><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="s">"AAC_RAW"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">AAC_ADTS</span><span class="p">:</span><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s">"AAC_ADTS"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">AAC_ADIF</span><span class="p">:</span><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="s">"AAC_ADIF"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">AAC_MP4</span><span class="p">:</span><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="s">"AAC_MP4"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">MPEG_TS_BDAV</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_TS_BDAV"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">MPEG_Audio_Layer1</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_Audio_Layer1"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">MPEG_Audio_Layer2</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_Audio_Layer2"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">MPEG_Audio_Layer3</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_Audio_Layer3"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">G726_PACKED_AAL2</span><span class="p">:</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"G726_PACKED_AAL2"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">G726_PACKED_RFC3551</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"G726_PACKED_RFC3551"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">MPEG1_System</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG1_System"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamSubType</span><span class="o">::</span><span class="no">MPEG2_System</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG2_System"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w">                                     </span><span class="k">return</span><span class="w"> </span><span class="s">"???"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="streamtypename">
+<h3>streamTypeName<a class="headerlink" href="#streamtypename" title="Link to this heading">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="nf">streamTypeName</span><span class="p">(</span><span class="n">StreamType</span><span class="o">::</span><span class="n">Enum</span><span class="w"> </span><span class="n">st</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// video</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">H261</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"H261"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">H263</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"H263"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">H264</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"H264"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">H265</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"H265"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MJPEG</span><span class="p">:</span><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="s">"MJPEG"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG1_Video</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG1_Video"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG2_Video</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG2_Video"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG4_Video</span><span class="p">:</span><span class="w">       </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG4_Video"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">UncompressedVideo</span><span class="p">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">"UncompressedVideo"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">VC1</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"VC1"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">WMV</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"WMV"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">AVS</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"AVS"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">VP8</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"VP8"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">VP9</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"VP9"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">AV1</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"AV1"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">Theora</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"Theora"</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// audio</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">LPCM</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"LPCM"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">ALAW_PCM</span><span class="p">:</span><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">"ALAW_PCM"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MULAW_PCM</span><span class="p">:</span><span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="s">"MULAW_PCM"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">G726_ADPCM</span><span class="p">:</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"G726_ADPCM"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">VIDEO_DVD_PCM</span><span class="p">:</span><span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">"VIDEO_DVD_PCM"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">AC3</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"AC3"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">DTS</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"DTS"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG_Audio</span><span class="p">:</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_Audio"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">Vorbis</span><span class="p">:</span><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">"Vorbis"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">Opus</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"Opus"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">AAC</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"AAC"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">AMRNB</span><span class="p">:</span><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="s">"AMRNB"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">AMRWB</span><span class="p">:</span><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="s">"AMRWB"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">WMA</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"WMA"</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// images</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">BMP</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"BMP"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">GIF</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"GIF"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">JPEG</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"JPEG"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">PNG</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"PNG"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">TIFF</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"TIFF"</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// containers</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">AVI</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"AVI"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MP4</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"MP4"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">ASF</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"ASF"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG_PS</span><span class="p">:</span><span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_PS"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG_TS</span><span class="p">:</span><span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_TS"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG_PES</span><span class="p">:</span><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_PES"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">WAVE</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"WAVE"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">FLV</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"FLV"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">WebM</span><span class="p">:</span><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="s">"WebM"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">OGG</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"Ogg"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">IVF</span><span class="p">:</span><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="s">"IVF"</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// data</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG_PSI_PACKETS</span><span class="p">:</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_PSI_PACKETS"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">MPEG_TS_PACKETS</span><span class="p">:</span><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="s">"MPEG_TS_PACKETS"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">Teletext</span><span class="p">:</span><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">"Teletext"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">StreamType</span><span class="o">::</span><span class="no">Unknown</span><span class="p">:</span><span class="w">           </span><span class="k">return</span><span class="w"> </span><span class="s">"Unknown"</span><span class="p">;</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w">                            </span><span class="k">return</span><span class="w"> </span><span class="s">"???"</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+<div class="related-pages">
+  <a class="next-page" href="../../about-avblocks/about-avblocks-plus/">
+      <div class="page-info">
+        <div class="context">
+          <span>Next</span>
+        </div>
+        <div class="title">About AVBlocks Plus</div>
+      </div>
+      <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+    </a>
+  <a class="prev-page" href="../c-c-api-specifics/string-encoding/">
+      <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+      <div class="page-info">
+        <div class="context">
+          <span>Previous</span>
+        </div>
+        
+        <div class="title">String Encoding</div>
+        
+      </div>
+    </a>
+</div>
+<div class="bottom-of-page">
+  <div class="left-details">
+    <div class="copyright">
+        Copyright &#169; 2003 - 2026, Primo Software Corp.
+    </div>
+  </div>
+  <div class="right-details">
+    <div class="icons">
+      
+      <a href="https://github.com/avblocks" class="muted-link " aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">C++ Utility Classes and Functions</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#stdout-utf16">stdout_utf16</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#bitratemodename">bitrateModeName</a></li>
+<li><a class="reference internal" href="#colorformatname">colorFormatName</a></li>
+<li><a class="reference internal" href="#scantypename">scanTypeName</a></li>
+<li><a class="reference internal" href="#mediatypename">mediaTypeName</a></li>
+<li><a class="reference internal" href="#metapicturetypename">metaPictureTypeName</a></li>
+<li><a class="reference internal" href="#streamsubtypename">streamSubTypeName</a></li>
+<li><a class="reference internal" href="#streamtypename">streamTypeName</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=6e107310"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../_static/custom.js?v=aefd60bb"></script>
+    </body>
+</html>

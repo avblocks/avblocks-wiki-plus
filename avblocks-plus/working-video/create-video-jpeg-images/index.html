@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -505,11 +509,11 @@
         <article role="main" id="furo-main-content">
           <section id="create-video-from-jpeg-images">
 <h1>Create Video From JPEG Images<a class="headerlink" href="#create-video-from-jpeg-images" title="Link to this heading">¶</a></h1>
-<p>This topic describes how to use the <code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code> class to make a video from a sequence of images.</p>
+<p>This topic describes how to use the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html"><code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code></a> class to make a video from a sequence of images.</p>
 <p>The code snippets in this article are from the <a class="reference external" href="https://github.com/avblocks/avblocks-plus/tree/main/samples/darwin/slideshow">slideshow</a> sample.</p>
 <section id="create-a-transcoder-object">
 <h2>Create a Transcoder object<a class="headerlink" href="#create-a-transcoder-object" title="Link to this heading">¶</a></h2>
-<p>Create a new <code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code> object and enable the demo mode.</p>
+<p>Create a new <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html"><code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code></a> object and enable the demo mode.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TTranscoder</span><span class="w"> </span><span class="n">transcoder</span><span class="p">;</span>
 <span class="n">transcoder</span><span class="p">.</span><span class="n">allowDemoMode</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
@@ -518,7 +522,7 @@
 <h3>Configure inputs<a class="headerlink" href="#configure-inputs" title="Link to this heading">¶</a></h3>
 <section id="detect-the-input-stream">
 <h4>Detect the input stream<a class="headerlink" href="#detect-the-input-stream" title="Link to this heading">¶</a></h4>
-<p>If the input is a media file, you can use <code class="docutils literal notranslate"><span class="pre">TMediaInfo</span></code> to read the stream information from the file. For images <code class="docutils literal notranslate"><span class="pre">TMediaInfo</span></code> will return a <code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code> object readily configured with the image attributes. AVBlocks supports BMP, JPEG, PNG, and TIFF images.</p>
+<p>If the input is a media file, you can use <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaInfoT.html"><code class="docutils literal notranslate"><span class="pre">TMediaInfo</span></code></a> to read the stream information from the file. For images <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaInfoT.html"><code class="docutils literal notranslate"><span class="pre">TMediaInfo</span></code></a> will return a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TVideoStreamInfo.html"><code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code></a> object readily configured with the image attributes. AVBlocks supports BMP, JPEG, PNG, and TIFF images.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TMediaInfo</span><span class="w"> </span><span class="n">mediaInfo</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">firstImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">opt</span><span class="p">.</span><span class="n">input_dir</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">"/cube0000.jpeg"</span><span class="p">;</span>
 <span class="n">mediaInfo</span><span class="p">.</span><span class="n">inputs</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">file</span><span class="p">(</span><span class="n">firstImage</span><span class="p">);</span>
@@ -530,9 +534,9 @@
 <h4>Configure the input socket<a class="headerlink" href="#configure-the-input-socket" title="Link to this heading">¶</a></h4>
 <p>This requires the following steps:</p>
 <ol class="arabic simple">
-<li><p>Get a <code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code> object from <code class="docutils literal notranslate"><span class="pre">TMediaInfo</span></code></p></li>
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code> object and call the <code class="docutils literal notranslate"><span class="pre">TMediaPin::streamInfo</span></code> method.</p></li>
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code> object and add the pin with <code class="docutils literal notranslate"><span class="pre">TMediaSocket::addPin</span></code>.</p></li>
+<li><p>Get a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TVideoStreamInfo.html"><code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code></a> object from <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaInfoT.html"><code class="docutils literal notranslate"><span class="pre">TMediaInfo</span></code></a></p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaPin.html"><code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code></a> object and call the <code class="docutils literal notranslate"><span class="pre">TMediaPin::streamInfo</span></code> method.</p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaSocketT.html"><code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code></a> object and add the pin with <code class="docutils literal notranslate"><span class="pre">TMediaSocket::addPin</span></code>.</p></li>
 <li><p>Add the socket to the transcoder with <code class="docutils literal notranslate"><span class="pre">TTranscoder::addInput</span></code>.</p></li>
 </ol>
 <!-- end of list -->
@@ -552,7 +556,7 @@
 <h3>Configure outputs<a class="headerlink" href="#configure-outputs" title="Link to this heading">¶</a></h3>
 <p>This requires the following steps:</p>
 <ol class="arabic simple">
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code> object from a predefined preset by passing the preset name to its constructor</p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaSocketT.html"><code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code></a> object from a predefined preset by passing the preset name to its constructor</p></li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">TMediaSocket::file</span></code> method with the output filename</p></li>
 <li><p>Add the socket to the transcoder with <code class="docutils literal notranslate"><span class="pre">TTranscoder::addOutput</span></code></p></li>
 </ol>
@@ -568,7 +572,7 @@
 <p>This requires the following steps:</p>
 <ol class="arabic simple">
 <li><p>Call <code class="docutils literal notranslate"><span class="pre">TTranscoder::open</span></code></p></li>
-<li><p>Call <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code> for each image</p></li>
+<li><p>Call <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a> for each image</p></li>
 <li><p>Call <code class="docutils literal notranslate"><span class="pre">TTranscoder::flush</span></code> (always needed after pushing)</p></li>
 <li><p>Call <code class="docutils literal notranslate"><span class="pre">TTranscoder::close</span></code></p></li>
 </ol>
@@ -592,10 +596,10 @@
 <p>The code that pushes the image data is fairly simple.</p>
 <p>For each image:</p>
 <ol class="arabic simple">
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaSample</span></code> object</p></li>
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaBuffer</span></code> object and load it with the image data</p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaSample.html"><code class="docutils literal notranslate"><span class="pre">TMediaSample</span></code></a> object</p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaBuffer.html"><code class="docutils literal notranslate"><span class="pre">TMediaBuffer</span></code></a> object and load it with the image data</p></li>
 <li><p>Set the sample start time with <code class="docutils literal notranslate"><span class="pre">TMediaSample::startTime</span></code>, and set the sample buffer with <code class="docutils literal notranslate"><span class="pre">TMediaSample::buffer</span></code></p></li>
-<li><p>Call <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code> with the media sample object</p></li>
+<li><p>Call <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a> with the media sample object</p></li>
 </ol>
 <!-- end of list -->
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TMediaSample</span><span class="w"> </span><span class="n">sample</span><span class="p">;</span>

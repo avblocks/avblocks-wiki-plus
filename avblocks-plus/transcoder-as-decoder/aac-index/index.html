@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -506,9 +510,9 @@
           <section id="aac-audio-decoding">
 <h1>AAC Audio Decoding<a class="headerlink" href="#aac-audio-decoding" title="Link to this heading">¶</a></h1>
 <p>AAC (Advanced Audio Coding) is a lossy audio compression format used in streaming, broadcast, mobile, and MP4-family media. These decoder samples read AAC in ADTS format, where each compressed frame includes a synchronization header and enough stream information for sequential decoding.</p>
-<p>These samples show how to decode AAC audio with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code> from an ADTS file and with <code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code> when the application needs to receive decoded audio samples directly.</p>
+<p>These samples show how to decode AAC audio with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a> from an ADTS file and with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::pull__int32_tR.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code></a> when the application needs to receive decoded audio samples directly.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../aac-decoder-run/"><span class="std std-doc">AAC ADTS Decoder (Run)</span></a> - Decode an AAC/ADTS file to uncompressed WAV output with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code>.</p></li>
+<li><p><a class="reference internal" href="../aac-decoder-run/"><span class="std std-doc">AAC ADTS Decoder (Run)</span></a> - Decode an AAC/ADTS file to uncompressed WAV output with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="../aac-decoder/"><span class="std std-doc">AAC ADTS Decoder (Pull)</span></a> - Pull decoded AAC audio samples from the transcoder and write them to a WAV file.</p></li>
 </ul>
 <div class="toctree-wrapper compound">

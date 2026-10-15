@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -506,10 +510,10 @@
           <section id="hevc-h-265-video-decoding">
 <h1>HEVC / H.265 Video Decoding<a class="headerlink" href="#hevc-h-265-video-decoding" title="Link to this heading">¶</a></h1>
 <p>HEVC / H.265 is a video compression standard designed to provide better compression efficiency than AVC / H.264, especially for HD, 4K, and higher-resolution video. These decoder samples cover Annex B elementary streams, access-unit input, and access-unit parsing.</p>
-<p>These samples show how to decode an HEVC / H.265 Annex B elementary stream to a raw YUV video file with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code>, decode HEVC access units with <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code>, and parse HEVC access units with <code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code>.</p>
+<p>These samples show how to decode an HEVC / H.265 Annex B elementary stream to a raw YUV video file with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a>, decode HEVC access units with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a>, and parse HEVC access units with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::pull__int32_tR.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code></a>.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../hevc-decoder-run/"><span class="std std-doc">HEVC / H.265 Annex B Decoder (Run)</span></a> - Decode an HEVC / H.265 Annex B elementary stream to raw YUV video with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code>.</p></li>
-<li><p><a class="reference internal" href="../hevc-decoder-access-unit/"><span class="std std-doc">HEVC / H.265 Access Unit Decoder</span></a> - Decode a sequence of HEVC / H.265 access-unit files to raw YUV video with <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code>.</p></li>
+<li><p><a class="reference internal" href="../hevc-decoder-run/"><span class="std std-doc">HEVC / H.265 Annex B Decoder (Run)</span></a> - Decode an HEVC / H.265 Annex B elementary stream to raw YUV video with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="../hevc-decoder-access-unit/"><span class="std std-doc">HEVC / H.265 Access Unit Decoder</span></a> - Decode a sequence of HEVC / H.265 access-unit files to raw YUV video with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="../hevc-h265-annex-b-parser/"><span class="std std-doc">HEVC / H.265 Annex B Parser</span></a> - Split an HEVC / H.265 Annex B stream into access units and inspect NAL unit headers.</p></li>
 </ul>
 <div class="toctree-wrapper compound">

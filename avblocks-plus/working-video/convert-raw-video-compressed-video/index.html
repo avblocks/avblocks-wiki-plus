@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -509,7 +513,7 @@
 <p>The code snippets in this article are from the <a class="reference external" href="https://github.com/avblocks/avblocks-plus/tree/main/samples/darwin/enc_preset_file">enc_preset_file</a> sample.</p>
 <section id="create-a-transcoder-object">
 <h2>Create a Transcoder object<a class="headerlink" href="#create-a-transcoder-object" title="Link to this heading">¶</a></h2>
-<p>Create a new <code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code> object and enable the demo mode.</p>
+<p>Create a new <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html"><code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code></a> object and enable the demo mode.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TTranscoder</span><span class="p">()</span>
 <span class="w">    </span><span class="p">.</span><span class="n">allowDemoMode</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 </pre></div>
@@ -517,13 +521,13 @@
 </section>
 <section id="configure-inputs-and-outputs">
 <h2>Configure inputs and outputs<a class="headerlink" href="#configure-inputs-and-outputs" title="Link to this heading">¶</a></h2>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code> class to configure media sockets and the <code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code> class to configure media pins.</p>
+<p>Use the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaSocketT.html"><code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code></a> class to configure media sockets and the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaPin.html"><code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code></a> class to configure media pins.</p>
 <section id="configure-video-input">
 <h3>Configure video input<a class="headerlink" href="#configure-video-input" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Create and configure a <code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code> object</p></li>
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code> object and set its stream info with <code class="docutils literal notranslate"><span class="pre">TMediaPin::streamInfo</span></code>.</p></li>
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code> object and add the pin with <code class="docutils literal notranslate"><span class="pre">TMediaSocket::addPin</span></code>.</p></li>
+<li><p>Create and configure a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TVideoStreamInfo.html"><code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code></a> object</p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaPin.html"><code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code></a> object and set its stream info with <code class="docutils literal notranslate"><span class="pre">TMediaPin::streamInfo</span></code>.</p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaSocketT.html"><code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code></a> object and add the pin with <code class="docutils literal notranslate"><span class="pre">TMediaSocket::addPin</span></code>.</p></li>
 <li><p>Add the socket to the transcoder with <code class="docutils literal notranslate"><span class="pre">TTranscoder::addInput</span></code>.</p></li>
 </ol>
 <!-- end of list -->
@@ -547,7 +551,7 @@
 <section id="configure-video-output">
 <h3>Configure video output<a class="headerlink" href="#configure-video-output" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code> object for a predefined <code class="docutils literal notranslate"><span class="pre">Preset</span></code> by passing the preset name to its constructor</p></li>
+<li><p>Create a <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaSocketT.html"><code class="docutils literal notranslate"><span class="pre">TMediaSocket</span></code></a> object for a predefined <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/core/namespaces/primo_avblocks_Preset.html"><code class="docutils literal notranslate"><span class="pre">Preset</span></code></a> by passing the preset name to its constructor</p></li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">TMediaSocket::file</span></code> method to set the output filename</p></li>
 <li><p>Add the socket to the transcoder with <code class="docutils literal notranslate"><span class="pre">TTranscoder::addOutput</span></code></p></li>
 </ol>
@@ -562,7 +566,7 @@
 <h2>Transcode<a class="headerlink" href="#transcode" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">TTranscoder::open</span></code> method.</p></li>
-<li><p>Call the <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code> method.</p></li>
+<li><p>Call the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a> method.</p></li>
 <li><p>Call the <code class="docutils literal notranslate"><span class="pre">TTranscoder::close</span></code> method.</p></li>
 </ol>
 <!-- end of list -->

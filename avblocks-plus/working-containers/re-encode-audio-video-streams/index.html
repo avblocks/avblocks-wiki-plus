@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -514,7 +518,7 @@
 </section>
 <section id="code">
 <h2>Code<a class="headerlink" href="#code" title="Link to this heading">¶</a></h2>
-<p>To re-encode audio and video streams, configure the <code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code> outputs to be exactly the same as the inputs, and set the <code class="docutils literal notranslate"><span class="pre">Param::ReEncode</span></code> parameter on the output audio and the output video pins to <code class="docutils literal notranslate"><span class="pre">Use::On</span></code>, like this:</p>
+<p>To re-encode audio and video streams, configure the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html"><code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code></a> outputs to be exactly the same as the inputs, and set the <code class="docutils literal notranslate"><span class="pre">Param::ReEncode</span></code> parameter on the output audio and the output video pins to <code class="docutils literal notranslate"><span class="pre">Use::On</span></code>, like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TMediaPin</span><span class="w"> </span><span class="n">pin</span><span class="p">;</span>
 <span class="n">pin</span><span class="p">.</span><span class="n">addParam</span><span class="p">(</span><span class="n">Param</span><span class="o">::</span><span class="n">ReEncode</span><span class="p">,</span><span class="w"> </span><span class="n">Use</span><span class="o">::</span><span class="n">On</span><span class="p">);</span>
 </pre></div>

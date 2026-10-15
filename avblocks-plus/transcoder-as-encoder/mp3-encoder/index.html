@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -505,7 +509,7 @@
         <article role="main" id="furo-main-content">
           <section id="mp3-encoder-push">
 <h1>MP3 Encoder (Push)<a class="headerlink" href="#mp3-encoder-push" title="Link to this heading">¶</a></h1>
-<p>This article explains how you can use <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code> to encode an MP3 audio stream from raw audio frames.</p>
+<p>This article explains how you can use <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a> to encode an MP3 audio stream from raw audio frames.</p>
 <p>The code snippets in this article are from the <a class="reference external" href="https://github.com/avblocks/avblocks-plus/tree/main/samples/darwin/enc_mp3_push">enc_mp3_push</a> sample.</p>
 <section id="source-audio">
 <h2>Source Audio<a class="headerlink" href="#source-audio" title="Link to this heading">¶</a></h2>
@@ -513,7 +517,7 @@
 </section>
 <section id="code">
 <h2>Code<a class="headerlink" href="#code" title="Link to this heading">¶</a></h2>
-<p>This code shows how you can encode raw uncompressed audio frames into an MP3 stream. Two <code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code> objects are used, one to read the raw LPCM frames from a file, and another to encode the raw frames to MP3 stream. The encoding is done via the <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code> method.</p>
+<p>This code shows how you can encode raw uncompressed audio frames into an MP3 stream. Two <code class="docutils literal notranslate"><span class="pre">TTranscoder</span></code> objects are used, one to read the raw LPCM frames from a file, and another to encode the raw frames to MP3 stream. The encoding is done via the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a> method.</p>
 <section id="initialize-avblocks">
 <h3>Initialize AVBlocks<a class="headerlink" href="#initialize-avblocks" title="Link to this heading">¶</a></h3>
 <p>The first step in any AVBlocks application is to initialize the library. This must be done before using any other AVBlocks functionality. The <code class="docutils literal notranslate"><span class="pre">TLibrary</span></code> constructor initializes the library and loads the necessary codecs. The <code class="docutils literal notranslate"><span class="pre">TLibrary</span></code> destructor shuts the library down and releases any allocated memory, so the library is terminated when the <code class="docutils literal notranslate"><span class="pre">TLibrary</span></code> object goes out of scope at the end of <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>

@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -506,9 +510,9 @@
           <section id="aac-audio-encoding">
 <h1>AAC Audio Encoding<a class="headerlink" href="#aac-audio-encoding" title="Link to this heading">¶</a></h1>
 <p>AAC (Advanced Audio Coding) is a lossy audio compression format commonly used for streaming, broadcast, mobile, and MP4-family media. These encoder samples produce AAC in ADTS format, where each audio frame carries its own header so the output can be stored or streamed as an elementary audio stream.</p>
-<p>These samples show how to encode uncompressed audio to AAC/ADTS with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code>, <code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code>, and <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code>.</p>
+<p>These samples show how to encode uncompressed audio to AAC/ADTS with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a>, <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::pull__int32_tR.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code></a>, and <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a>.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../aac-encoder-run/"><span class="std std-doc">AAC ADTS Encoder (Run)</span></a> - Encode uncompressed audio to an AAC/ADTS file with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code>.</p></li>
+<li><p><a class="reference internal" href="../aac-encoder-run/"><span class="std std-doc">AAC ADTS Encoder (Run)</span></a> - Encode uncompressed audio to an AAC/ADTS file with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="../aac-encoder-pull/"><span class="std std-doc">AAC ADTS Encoder (Pull)</span></a> - Pull encoded AAC samples from the transcoder and write them to an ADTS file.</p></li>
 <li><p><a class="reference internal" href="../aac-encoder/"><span class="std std-doc">AAC ADTS Encoder (Push)</span></a> - Push uncompressed audio samples into the transcoder to produce AAC/ADTS output.</p></li>
 </ul>

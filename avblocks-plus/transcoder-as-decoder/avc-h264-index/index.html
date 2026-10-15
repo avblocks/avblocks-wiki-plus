@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -506,11 +510,11 @@
           <section id="avc-h-264-video-decoding">
 <h1>AVC / H.264 Video Decoding<a class="headerlink" href="#avc-h-264-video-decoding" title="Link to this heading">¶</a></h1>
 <p>AVC / H.264 is a widely used video compression standard for streaming, broadcast, Blu-ray, conferencing, and general-purpose video storage. These decoder samples cover Annex B elementary streams, pulled decoded frames, access-unit input, and access-unit parsing.</p>
-<p>These samples show how to decode AVC / H.264 video with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code>, decode with <code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code>, decode AVC / H.264 access units with <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code>, and parse Annex B access units from an H.264 elementary stream.</p>
+<p>These samples show how to decode AVC / H.264 video with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a>, decode with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::pull__int32_tR.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::pull</span></code></a>, decode AVC / H.264 access units with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a>, and parse Annex B access units from an H.264 elementary stream.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../avc-h264-decoder-run/"><span class="std std-doc">AVC / H.264 Annex B Decoder (Run)</span></a> - Decode an H.264 Annex B elementary stream to raw YUV video with <code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code>.</p></li>
+<li><p><a class="reference internal" href="../avc-h264-decoder-run/"><span class="std std-doc">AVC / H.264 Annex B Decoder (Run)</span></a> - Decode an H.264 Annex B elementary stream to raw YUV video with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::runR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::run</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="../avc-h264-decoder/"><span class="std std-doc">AVC / H.264 Annex B Decoder (Pull)</span></a> - Pull decoded H.264 video frames from the transcoder and write them to a YUV file.</p></li>
-<li><p><a class="reference internal" href="../avc-h264-decoder-access-unit/"><span class="std std-doc">AVC / H.264 Access Unit Decoder</span></a> - Decode a sequence of AVC / H.264 access-unit files to raw YUV video with <code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code>.</p></li>
+<li><p><a class="reference internal" href="../avc-h264-decoder-access-unit/"><span class="std std-doc">AVC / H.264 Access Unit Decoder</span></a> - Decode a sequence of AVC / H.264 access-unit files to raw YUV video with <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TTranscoderT.html#primo::avblocks::modern::TTranscoderT::push__int32_t.TMediaSampleR"><code class="docutils literal notranslate"><span class="pre">TTranscoder::push</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="../avc-h264-annex-b-parser/"><span class="std std-doc">AVC / H.264 Annex B Parser</span></a> - Parse an H.264 Annex B stream into access units and inspect NAL unit headers.</p></li>
 </ul>
 <div class="toctree-wrapper compound">

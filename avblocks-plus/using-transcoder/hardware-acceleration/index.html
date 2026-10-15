@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -509,7 +513,7 @@
 <p>For detailed information about the supported hardware platforms, see <a class="reference internal" href="../../../about-avblocks/about-hardware-acceleration/"><span class="doc std std-doc">About Hardware Acceleration</span></a>.</p>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
-<p>To enable hardware encoding, on the output <code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code>, set the <code class="docutils literal notranslate"><span class="pre">HardwareEncoder</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">HardwareEncoder::Auto</span></code>. This must be done before calling <code class="docutils literal notranslate"><span class="pre">TTranscoder::open</span></code>:</p>
+<p>To enable hardware encoding, on the output <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TMediaPin.html"><code class="docutils literal notranslate"><span class="pre">TMediaPin</span></code></a>, set the <code class="docutils literal notranslate"><span class="pre">HardwareEncoder</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">HardwareEncoder::Auto</span></code>. This must be done before calling <code class="docutils literal notranslate"><span class="pre">TTranscoder::open</span></code>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// create output socket</span>
 <span class="n">TMediaSocket</span><span class="w"> </span><span class="n">outputSocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TMediaSocket</span><span class="p">(</span><span class="n">Preset</span><span class="o">::</span><span class="n">Video</span><span class="o">::</span><span class="n">iPad</span><span class="o">::</span><span class="n">H264_720p</span><span class="p">);</span>
 

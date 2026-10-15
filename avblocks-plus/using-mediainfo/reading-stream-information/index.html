@@ -443,6 +443,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/known-hardware-acceleration-issues/">Known Hardware Acceleration Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about-avblocks/demo-version/">Demo Version</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
@@ -592,7 +596,7 @@
 </div>
 <section id="print-video-stream-information">
 <h3>Print video stream information<a class="headerlink" href="#print-video-stream-information" title="Link to this heading">¶</a></h3>
-<p>Call the methods of the <code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code> class to get the properties of a video stream.</p>
+<p>Call the methods of the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TVideoStreamInfo.html"><code class="docutils literal notranslate"><span class="pre">TVideoStreamInfo</span></code></a> class to get the properties of a video stream.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printVideo</span><span class="p">(</span><span class="n">TVideoStreamInfo</span><span class="o">&amp;</span><span class="w"> </span><span class="n">vsi</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"frame size: "</span><span class="w">     </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vsi</span><span class="p">.</span><span class="n">frameWidth</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"x"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">vsi</span><span class="p">.</span><span class="n">frameHeight</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
@@ -609,7 +613,7 @@
 </section>
 <section id="print-audio-stream-information">
 <h3>Print audio stream information<a class="headerlink" href="#print-audio-stream-information" title="Link to this heading">¶</a></h3>
-<p>Call the methods of the <code class="docutils literal notranslate"><span class="pre">TAudioStreamInfo</span></code> class to get the properties of an audio stream.</p>
+<p>Call the methods of the <a class="reference external" href="https://doc.avblocks.com/plus/latest/api/fluent/classes/primo_avblocks_modern_TAudioStreamInfo.html"><code class="docutils literal notranslate"><span class="pre">TAudioStreamInfo</span></code></a> class to get the properties of an audio stream.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printAudio</span><span class="p">(</span><span class="n">TAudioStreamInfo</span><span class="o">&amp;</span><span class="w"> </span><span class="n">asi</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"sample rate: "</span><span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">asi</span><span class="p">.</span><span class="n">sampleRate</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
